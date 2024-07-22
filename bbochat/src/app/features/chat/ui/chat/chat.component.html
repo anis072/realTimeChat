@@ -1,0 +1,49 @@
+<div class="chat-container">
+    <div class="chat-list">
+      @for (conversation of conversations(); track conversation.id) {
+        @for (user of getOtherUsers(conversation); track user.id) {
+        <div class="chat-list-item clickable" (click)="selectConversation(conversation.id)">
+          <div class="avatars">
+              <img [src]="user.avatar" class="avatar" alt="avatar">
+          </div>
+          <div>
+            <div class="chat-list-item-names">
+                {{ user.username }} 
+            </div>
+            <div class="chat-list-item-last-message">{{ conversation.lastMessage }}</div>
+          </div>
+        </div>
+    }
+      } @empty {
+        <div class="no-conversations">
+          No conversations yet! Click "New Topic" to start a chat.
+        </div>
+      }
+      <button class="new-topic-button clickable">New Topic</button>
+    </div>
+    <div class="chat-main">
+      <div class="chat-window">
+        @for (message of selectedConversation()?.messages ?? []; track message.createdAt) {
+          <div class="chat-message" [class.own-message]="isOwnMessage(message)">
+            <img [src]="message.sender.avatar" class="avatar" alt="avatar">
+            <div class="message-content">
+              <div class="message-user">{{ message.sender.username }}</div>
+              <div class="message-text">{{ message.body }}</div>
+              <div class="message-time">{{ message.createdAt | timeAgo }}</div>
+            </div>
+          </div>
+        } @empty {
+          <div class="no-messages">
+            No messages yet! Be the first to send a message.
+          </div>
+        }
+      </div>
+      <div class="chat-input">
+        <form [formGroup]="chatForm" (ngSubmit)="sendMessage()">
+          <input type="text" formControlName="message" placeholder="Write a new message">
+          <button type="submit" class="clickable">Send</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  

@@ -1,0 +1,142 @@
+.chat-container {
+  display: flex;
+  height: 100vh;
+}
+
+.chat-list {
+  width: 25%;
+  border-right: 1px solid #ccc;
+  overflow-y: auto;
+  display: flex;
+  justify-content: space-between;
+  flex-flow: column;
+}
+
+.chat-list-item {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.chat-list-item img {
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.chat-list-item-name {
+  font-weight: bold;
+}
+
+.chat-list-item-last-message {
+  color: #888;
+}
+
+.new-topic-button {
+  width: 100%;
+  padding: 10px;
+  background-color: green;
+  color: white;
+  border: none;
+  cursor: pointer;
+  margin-bottom: 10px;
+  transition: transform 0.2s ease;
+}
+
+.chat-main {
+  width: 75%;
+  display: flex;
+  flex-direction: column;
+}
+
+.chat-window {
+  flex: 1;
+  overflow-y: auto;
+  padding: 10px;
+}
+
+.chat-message {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 10px;
+}
+
+.chat-message.own-message {
+  flex-direction: row-reverse;
+  text-align: right;
+}
+
+.chat-message img {
+  border-radius: 50%;
+  margin: 0 10px;
+}
+
+.message-content {
+  background-color: #f1f1f1;
+  padding: 10px;
+  border-radius: 5px;
+  max-width: 60%;
+}
+
+.message-content .message-user {
+  font-weight: bold;
+}
+
+.message-content .message-text {
+  margin: 5px 0;
+}
+
+.message-content .message-time {
+  font-size: 0.8em;
+  color: #888;
+}
+
+.chat-message.own-message .message-content {
+  background-color: #d1e7dd;
+}
+
+.chat-message:not(.own-message) .message-content {
+  background-color: #f8d7da;
+}
+
+.chat-input {
+  padding: 10px;
+  border-top: 1px solid #ccc;
+}
+
+.chat-input form {
+  display: flex;
+  align-items: center;
+}
+
+.chat-input input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+.chat-input button {
+  padding: 10px 20px;
+  background-color: green;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+.avatar {
+  height: 50px;
+}
+.clickable:active {
+  transform: scale(0.95);
+}
+.no-conversations,
+.no-messages {
+  padding: 20px;
+  text-align: center;
+  color: #888;
+}

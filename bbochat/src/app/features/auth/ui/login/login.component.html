@@ -1,0 +1,24 @@
+<div class="login-container">
+    <div class="login-box">
+      <h2>Login</h2>
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div class="input-group" [class.invalid]="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
+          <label for="email">
+            <i class="fas fa-envelope"></i>
+          </label>
+          <input type="email" id="email" formControlName="email" placeholder="Email" required>
+        </div>
+        <div class="input-group" [class.invalid]="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
+          <label for="password">
+            <i class="fas fa-lock"></i>
+          </label>
+          <input type="password" id="password" formControlName="password" placeholder="Password" required>
+        </div>
+        <button type="submit" class="login-button">Login</button>
+        @if (errorMessage()) {
+          <div class="error-message">{{ errorMessage() }}</div>
+        }
+      </form>
+    </div>
+  </div>
+  
