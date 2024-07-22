@@ -16,7 +16,7 @@ bbobackend is a backend service for a chat application that allows users to auth
 
 1. Clone the repository:
    ```sh
-   git clone https://github.com/yourusername/bbobackend.git
+   git clone https://github.com/anis072/realTimeChat.git
    cd bbobackend
 2. Install dependencies:
    ```sh
